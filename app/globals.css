@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#0a0d14] text-slate-100 antialiased selection:bg-cyan-500/30 selection:text-cyan-200 min-h-screen font-sans;
+  }
+}
+
+/* Glassmorphism utility classes */
+.glass-panel {
+  background: rgba(18, 24, 36, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-hover {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.glass-panel-hover:hover {
+  background: rgba(26, 34, 52, 0.85);
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0d14;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* Radar pulse animation */
+@keyframes radar-ping {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(0.9);
+    opacity: 0.9;
+  }
+}
+
+.animate-radar {
+  animation: radar-ping 2.5s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+/* Leaflet dark theme map override */
+.leaflet-container {
+  background-color: #0a0d14 !important;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.75rem;
+}
+
+.leaflet-popup-content-wrapper {
+  background: rgba(15, 23, 42, 0.95) !important;
+  color: #f8fafc !important;
+  border: 1px solid rgba(56, 189, 248, 0.3) !important;
+  backdrop-filter: blur(12px) !important;
+  border-radius: 0.75rem !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.8) !important;
+}
+
+.leaflet-popup-tip {
+  background: rgba(15, 23, 42, 0.95) !important;
+}
